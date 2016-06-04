@@ -11,8 +11,20 @@
 <body>
 <%= render 'layouts/navbar' %>
 <div class="container-fluid">
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+	<% if !user_signed_in? %>
+		<p class="notice"><%= notice %></p>
+    	<p class="alert"><%= alert %></p>
+	<% else %>
+		<p> 
+			<h2 class="pull-left">Restaurant in HCMC</h2>
+			<ul class="pull-right">
+				<li>
+					<%= link_to "Home", _path %>
+				</li>
+			</ul>
+		</p>
+		<hr>
+	<% end %>	
 	<%= yield %>
 </div>
 <%= render 'layouts/footer' %>
