@@ -10,15 +10,22 @@
 </head>
 <body>
 <%= render 'layouts/navbar' %>
-<div class="container-fluid">
+<div class="container-fluid" id="main">
 	<% if !user_signed_in? %>
-		<p class="notice"><%= notice %></p>
-    	<p class="alert"><%= alert %></p>
+		<% flash.each do |name,msg| %>
+			<% if msg.is_a?(String) %>
+				<div class="alert alert-<% name == "notice" ? "success" : "danger" %> alert-dismissable">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<%= content_tag :div , msg , :id => "flash_#{name}" %>
+				</div>
+			<% end %>
+		<% end %>
 	<% else %>
-		<h3 class="col-md-6">Restaurant in HCMC </h3>
+		<%= content_tag :h3 , "Restaurant in HCMC" , class: "col-md-6" %>
 		<ul class="list-inline col-md-6">
 			<li><%= link_to "Home", root_path  %></li>
-			<li><%= link_to "About", root_path  %></li>
+			<li><%= link_to "About", pages_about_path  %></li>
+			<li><%= link_to "Contact", pages_contact_path  %></li>
 		</ul>
 		<div class="clearfix">
 		</div>

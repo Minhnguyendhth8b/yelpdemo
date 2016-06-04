@@ -63,9 +63,15 @@ $large-device-max: 1900px;
 		}
 	}
 }
+
+
+
 @media screen and ( min-width: $large-device-min ) and (max-width: $large-device-max){
 	.container-fluid{
 		padding:10px 120px;
+	}
+	#main{
+		min-height: 508px;
 	}
 }
 
