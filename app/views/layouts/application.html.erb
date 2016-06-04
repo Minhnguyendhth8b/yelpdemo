@@ -15,17 +15,23 @@
 		<p class="notice"><%= notice %></p>
     	<p class="alert"><%= alert %></p>
 	<% else %>
-		<p> 
-			<h2 class="pull-left">Restaurant in HCMC</h2>
-			<ul class="pull-right">
-				<li>
-					<%= link_to "Home", _path %>
-				</li>
-			</ul>
-		</p>
+		<h3 class="col-md-6">Restaurant in HCMC </h3>
+		<ul class="list-inline col-md-6">
+			<li><%= link_to "Home", root_path  %></li>
+			<li><%= link_to "About", root_path  %></li>
+		</ul>
+		<div class="clearfix">
+		</div>
 		<hr>
-	<% end %>	
-	<%= yield %>
+	<% end %>
+	<div class="row">
+        <div class="col-xs-12 col-md-9">
+        	<%= yield %>
+        </div>
+        <div class="col-xs-12 col-md-3">
+        	áldknasdlkn
+        </div>
+    </div>	
 </div>
 <%= render 'layouts/footer' %>
 </body>
